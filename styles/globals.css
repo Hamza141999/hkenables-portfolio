@@ -1,0 +1,93 @@
+* {
+  margin: 0;
+}
+body,
+html,
+.App,
+#root {
+  color: #171f2f;
+  transition: ease-in-out 100ms;
+  background-color: var(--background) !important;
+}
+a {
+  text-decoration: none !important;
+}
+p {
+  font-family: "dm-r" !important;
+}
+:root {
+  --background: white;
+  --textColor: #171f2f;
+  --darkColor1: rgb(14, 40, 101);
+  --darkColor2: rgb(62, 12, 98);
+  --darkColor3: rgb(99, 11, 26);
+  --darkColor4: rgb(107, 51, 9);
+  --greyText: rgb(131, 131, 131);
+}
+
+[data-theme="dark"] {
+  --background: #171f2f;
+  --textColor: white;
+  --darkColor1: white;
+  --darkColor2: white;
+  --darkColor3: white;
+  --darkColor4: white;
+  --greyText: white;
+}
+.marquee {
+  justify-content: space-between !important;
+}
+@font-face {
+  font-family: "cd-b";
+  src: url("../public/fonts/ClashDisplay-Bold.otf") format("opentype");
+}
+@font-face {
+  font-family: "cd-sb";
+  src: url("../public/fonts/ClashDisplay-Semibold.otf") format("opentype");
+}
+@font-face {
+  font-family: "cd-r";
+  src: url("../public/fonts/ClashDisplay-Regular.otf") format("opentype");
+}
+@font-face {
+  font-family: "cd-m";
+  src: url("../public/fonts/ClashDisplay-Medium.otf") format("opentype");
+}
+@font-face {
+  font-family: "cd-l";
+  src: url("../public/fonts/ClashDisplay-Light.otf") format("opentype");
+}
+@font-face {
+  font-family: "cd-el";
+  src: url("../public/fonts/ClashDisplay-Extralight.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "dm-b";
+  src: url("../public/fonts/DMSans-Bold.ttf");
+}
+
+@font-face {
+  font-family: "dm-bi";
+  src: url("../public/fonts/DMSans-BoldItalic.ttf");
+}
+
+@font-face {
+  font-family: "dm-i";
+  src: url("../public/fonts/DMSans-Italic.ttf");
+}
+
+@font-face {
+  font-family: "dm-m";
+  src: url("../public/fonts/DMSans-Medium.ttf");
+}
+
+@font-face {
+  font-family: "dm-mi";
+  src: url("../public/fonts/DMSans-MediumItalic.ttf");
+}
+
+@font-face {
+  font-family: "dm-r";
+  src: url("../public/fonts/DMSans-Regular.ttf");
+}
