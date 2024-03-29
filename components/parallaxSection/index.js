@@ -49,7 +49,6 @@ function Image({ image, index }) {
   return (
     <motion.section
       className={classes.section}
-      // style={{ scrollSnapAlign: "start" }}
     >
       <div
         ref={ref}
@@ -75,8 +74,8 @@ function Image({ image, index }) {
             : "initial",
           right: !image?.isText
             ? index % 2 !== 0 && "calc(45% + 70px)"
-            : "initial",
-          y,
+            : "initial"
+          // y,
         }}
       >
         {image?.heading}
@@ -85,18 +84,12 @@ function Image({ image, index }) {
   );
 }
 
-export default function ParallaxSection({ setHeightForAboutMe }) {
-  useEffect(() => {
-    if (aboutMeArray?.length > 0) {
-      const height = `${parseInt(aboutMeArray.length) * 100}vh`;
-      setHeightForAboutMe(height);
-    }
-  }, [aboutMeArray]);
+export default function ParallaxSection() {
 
   return (
     <div className={classes.parallax_container}>
       {aboutMeArray?.map((image, index) => (
-        <Image index={index} image={image} />
+        <Image key={index} index={index} image={image} />
       ))}
     </div>
   );

@@ -20,10 +20,7 @@ function ThemeProvider({ children }) {
 
   const [isDarkTheme, setIsDarkTheme] = useState(null);
 
-  console.log(isDarkTheme);
-
   const toggleTheme = (theme) => {
-    console.log("THEME CONVERTEDDDD!!");
     setIsDarkTheme(theme);
   };
 

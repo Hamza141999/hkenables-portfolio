@@ -71,11 +71,8 @@ export default function Home() {
     scroll.scrollTo(800);
   };
 
-  console.log("DISPLAY SCREEN: ", displayScreen);
-
   useEffect(() => {
     if (inView) {
-      console.log("Landing screen in view: ", inView);
       leftScreenAnimation.start({
         // opacity: 0,
         scale: 1,

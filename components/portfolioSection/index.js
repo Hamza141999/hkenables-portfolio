@@ -23,8 +23,6 @@ function PortfolioSection() {
     }
   }, [PROJECTS_DATA]);
 
-  console.log(projectData);
-
   const handleTriggleProjectPictureAnimation = async () => {
     splashScreenAnimation.start({
       x: "6vw",
@@ -45,7 +43,6 @@ function PortfolioSection() {
       },
     });
     await delay(250);
-    console.log(PROJECTS_DATA?.length, currentProjectIndex + 1);
     if (PROJECTS_DATA?.length === currentProjectIndex + 1) {
       setCurrentProjectIndex(0);
       setProjectData(PROJECTS_DATA[0]);
@@ -135,7 +132,7 @@ function PortfolioSection() {
             src={right_arrow.src}
           />
           {projectData?.project_tech?.map((tech, index) => (
-            <img src={tech.src} />
+            <img key={index} src={tech.src} />
           ))}
         </motion.div>
       </div>

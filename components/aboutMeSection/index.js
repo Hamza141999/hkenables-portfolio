@@ -28,11 +28,9 @@ function AboutMeSection() {
   });
   const headingUnderline = useAnimation();
   const textAnimation = useAnimation();
-  const [heightForAboutMe, setHeightForAboutMe] = useState('100vh');
 
   useEffect(() => {
     if (inView) {
-      console.log("Landing screen in view: ", inView);
       headingUnderline.start({
         scale: 1,
         transition: {
@@ -56,10 +54,8 @@ function AboutMeSection() {
     }
   }, [inView]);
 
-  console.log(heightForAboutMe);
-
   return (
-    <div ref={ref} className={classes.container} style={{height: heightForAboutMe, minHeight: heightForAboutMe}}>
+    <div ref={ref} className={classes.container}>
       <h2 className={classes.heading_left}>ABOUT{"  "}ME</h2>
       <h2 className={classes.heading_right}>ABOUT{"  "}ME</h2>
 
@@ -88,72 +84,74 @@ function AboutMeSection() {
           About me
         </motion.div> */}
 
-        <ParallaxSection setHeightForAboutMe={setHeightForAboutMe}/>
-      
-      <div className={classes.marquee_content}>
-      <motion.div animate={textAnimation} className={classes.marquee_heading}>
-          Tools and Languages I work with
-        </motion.div>
-        <div className={classes.marquee_container}>
-          <Marquee gradient={false} speed={60}>
-            <img
-              id="my-element"
-              data-tooltip-content="Logo designing, Digital Portraits"
-              src={ai.src}
-              className={classes.tech_icon}
-            />
-            <ReactTooltip anchorId="my-element" />
-            <img
-              src={psd.src}
-              className={classes.tech_icon}
-              id="my-element-1"
-              data-tooltip-content="Picture manipulation"
-            />
-            <ReactTooltip anchorId="my-element-1" />
+        <ParallaxSection />
 
-            <img
-              src={js.src}
-              className={classes.tech_icon}
-              id="my-element-2"
-              data-tooltip-content="Well versed, 2+ years. Go to language"
-            />
-            <ReactTooltip anchorId="my-element-2" />
+        <div className={classes.marquee_content}>
+          <motion.div
+            animate={textAnimation}
+            className={classes.marquee_heading}
+          >
+            Tools and Languages I work with
+          </motion.div>
+          <div className={classes.marquee_container}>
+            <Marquee gradient={false} speed={60}>
+              <img
+                id="my-element"
+                data-tooltip-content="Logo designing, Digital Portraits"
+                src={ai.src}
+                className={classes.tech_icon}
+              />
+              <ReactTooltip anchorId="my-element" />
+              <img
+                src={psd.src}
+                className={classes.tech_icon}
+                id="my-element-1"
+                data-tooltip-content="Picture manipulation"
+              />
+              <ReactTooltip anchorId="my-element-1" />
 
-            <img
-              id="my-element-3"
-              data-tooltip-content="Well versed, 2+ years. Go to language"
-              src={ts.src}
-              className={classes.tech_icon}
-            />
-            <ReactTooltip anchorId="my-element-3" />
+              <img
+                src={js.src}
+                className={classes.tech_icon}
+                id="my-element-2"
+                data-tooltip-content="Well versed, 2+ years. Go to language"
+              />
+              <ReactTooltip anchorId="my-element-2" />
 
-            <img
-              src={react.src}
-              className={classes.tech_icon}
-              id="my-element-4"
-              data-tooltip-content="Go to Framework | Well versed | 2+ years"
-            />
-            <ReactTooltip anchorId="my-element-4" />
+              <img
+                id="my-element-3"
+                data-tooltip-content="Well versed, 2+ years. Go to language"
+                src={ts.src}
+                className={classes.tech_icon}
+              />
+              <ReactTooltip anchorId="my-element-3" />
 
-            <img
-              id="my-element-5"
-              data-tooltip-content="Favourite Framework | Well versed | 2+ years"
-              src={next.src}
-              className={classes.tech_icon}
-            />
-            <ReactTooltip anchorId="my-element-5" />
+              <img
+                src={react.src}
+                className={classes.tech_icon}
+                id="my-element-4"
+                data-tooltip-content="Go to Framework | Well versed | 2+ years"
+              />
+              <ReactTooltip anchorId="my-element-4" />
 
-            <img src={metamask.src} className={classes.tech_icon} />
-            <img src={figma.src} className={classes.tech_icon} />
-            <img src={aws.src} className={classes.tech_icon} />
-            <img src={dart.src} className={classes.tech_icon} />
-            <img src={graph.src} className={classes.tech_icon} />
+              <img
+                id="my-element-5"
+                data-tooltip-content="Favourite Framework | Well versed | 2+ years"
+                src={next.src}
+                className={classes.tech_icon}
+              />
+              <ReactTooltip anchorId="my-element-5" />
 
-            {/* </marquee> */}
-          </Marquee>
+              <img src={metamask.src} className={classes.tech_icon} />
+              <img src={figma.src} className={classes.tech_icon} />
+              <img src={aws.src} className={classes.tech_icon} />
+              <img src={dart.src} className={classes.tech_icon} />
+              <img src={graph.src} className={classes.tech_icon} />
+
+              {/* </marquee> */}
+            </Marquee>
+          </div>
         </div>
-      </div>
-    
       </div>
     </div>
   );
