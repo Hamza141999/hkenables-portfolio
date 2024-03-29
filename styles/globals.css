@@ -9,6 +9,9 @@ html,
   transition: ease-in-out 100ms;
   background-color: var(--background) !important;
 }
+html {
+  scroll-snap-type: y mandatory;
+}
 a {
   text-decoration: none !important;
 }
@@ -36,6 +39,18 @@ p {
 }
 .marquee {
   justify-content: space-between !important;
+}
+
+.react-responsive-modal-overlay,
+.react-responsive-modal-container,
+.react-responsive-modal-modal {
+  animation-fill-mode: forwards !important;
+}
+.react-responsive-modal-modal{
+  max-width: initial !important;
+}
+.carousel{
+  height: 70vh !important;
 }
 @font-face {
   font-family: "cd-b";

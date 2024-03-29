@@ -24,7 +24,7 @@ const PROJECTS_DATA = [
     project_description:
       "AUQTA is an Immersive Real Estate Portal where Real Estate Agents and Developers can list their properties/projects for customers to purchase, invest, or rent. It also allows agents/developers to upload their property's 360 degree tours for people to visualise properties without having to visit it physically.",
     project_tech: [js, aws, next],
-    live_link: "https://www.google.com",
+    live_link: "https://auqta.com",
     github_link: "asd",
     project_image: auqta,
     secondary_color: "#85DBF0",
@@ -32,6 +32,7 @@ const PROJECTS_DATA = [
     dark_color: "#16255B",
     isFreelance: true,
     isComplete: true,
+    isLive: true,
   },
   {
     project_name: "Renttoapp",

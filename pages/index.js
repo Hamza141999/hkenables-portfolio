@@ -13,15 +13,7 @@ import smoke from "../public/assets/banner_section_assets/smoke.svg";
 import down_arrow from "../public/assets/banner_section_assets/down_arrow.svg";
 import linkedin_icon from "../public/assets/banner_section_assets/linkedin_icon.svg";
 import resume_icon from "../public/assets/banner_section_assets/resume_icon.svg";
-import {
-  Link,
-  DirectLink,
-  Element,
-  Events,
-  animateScroll as scroll,
-  scrollSpy,
-  scroller,
-} from "react-scroll";
+import { animateScroll as scroll } from "react-scroll";
 import Head from "next/head";
 import react, { useState, useEffect } from "react";
 import $ from "jquery";
@@ -37,7 +29,7 @@ import ContactScreen from "../components/contactSection";
 export default function Home() {
   const [isMusicOn, setIsMusicOn] = useState(true);
   const [music, setMusic] = useState();
-  const { ref, inView } = useInView({
+  const { ref: inViewRef, inView } = useInView({
     threshold: 0.5,
   });
   const leftScreenAnimation = useAnimation();
@@ -167,8 +159,8 @@ export default function Home() {
   return (
     <div
       style={{
-        height: !displayScreen ? "100vh" : "fit-content",
-        overflow: !displayScreen && "hidden",
+        // height: !displayScreen ? "100vh" : "100vh",
+        // overflow: !displayScreen && "hidden",
       }}
       className={classes.outer_container}
     >
@@ -199,145 +191,140 @@ export default function Home() {
           <BarLoader color={"white"} loading={true} size={180} />
         </motion.div>
       </motion.div>
-      <div className={classes.main_container}>
-        <div className={classes.container}>
-          <Head>
-            <title>Hkenables | Portfolio</title>
-          </Head>
-          <div className={classes.left_bean} />
-          <div className={classes.right_bean} />
-          <img src={bg1.src} className={classes.bg1} />
-          <img src={bg2.src} className={classes.bg2} />
+      <div className={classes.container}>
+        <Head>
+          <title>Hkenables | Portfolio</title>
+        </Head>
+        <div className={classes.left_bean} />
+        <div className={classes.right_bean} />
+        <img src={bg1.src} className={classes.bg1} />
+        <img src={bg2.src} className={classes.bg2} />
 
-          <div className={classes.mid_dark_phase} />
-          <motion.div
-            animate={headingAnimation}
-            className={classes.heading_container}
-          >
-            <h2 className={classes.intro_heading}>Hamza here!</h2>
-            <div className={classes.heading_underline} />
-          </motion.div>
-          <h3 className={classes.intro_subheading}>and I make</h3>
+        <div className={classes.mid_dark_phase} />
 
-          <div ref={ref} className={classes.table_container}>
-            <div className={classes.table_top_content_container}>
-              <img
-                onClick={scrollTo}
-                className={classes.down_arrow}
-                src={down_arrow.src}
-              />
+        <div ref={inViewRef} className={classes.table_container}>
+          <div className={classes.table_top_content_container}>
+            <img
+              onClick={scrollTo}
+              className={classes.down_arrow}
+              src={down_arrow.src}
+            />
+            <motion.div
+              animate={leftScreenAnimation}
+              className={classes.screen_container}
+            >
+              {displayScreen && (
+                <div className={classes.screen_text_container}>
+                  <div className={classes.code_1_line_1} />
+                  <div className={classes.code_1_line_2} />
+                  <div className={classes.code_1_line_3} />
+                  <div className={classes.code_1_line_4} />
+
+                  <div className={classes.code_2_line_1} />
+                  <div className={classes.code_2_line_2} />
+
+                  <div className={classes.code_3_line_1} />
+                  <div className={classes.code_3_line_2} />
+                  <div className={classes.code_3_line_3} />
+                  <div className={classes.code_3_line_4} />
+                  <div className={classes.code_3_line_5} />
+                </div>
+              )}
+
+              <img src={screen.src} className={classes.screen_left} />
+            </motion.div>
+            <div className={classes.laptop_container}>
               <motion.div
-                animate={leftScreenAnimation}
-                className={classes.screen_container}
+                animate={headingAnimation}
+                className={classes.heading_container}
               >
-                {displayScreen && (
-                  <div className={classes.screen_text_container}>
-                    <div className={classes.code_1_line_1} />
-                    <div className={classes.code_1_line_2} />
-                    <div className={classes.code_1_line_3} />
-                    <div className={classes.code_1_line_4} />
+                <h2 className={classes.intro_heading}>Hamza here!</h2>
+                <div className={classes.heading_underline} />
 
-                    <div className={classes.code_2_line_1} />
-                    <div className={classes.code_2_line_2} />
-
-                    <div className={classes.code_3_line_1} />
-                    <div className={classes.code_3_line_2} />
-                    <div className={classes.code_3_line_3} />
-                    <div className={classes.code_3_line_4} />
-                    <div className={classes.code_3_line_5} />
-                  </div>
-                )}
-
-                <img src={screen.src} className={classes.screen_left} />
+                <h3 className={classes.intro_subheading}>and I make</h3>
               </motion.div>
-              <div className={classes.laptop_container}>
-                <div className={classes.laptop_text_container}>
-                  <span id="rotate"></span>
-                </div>{" "}
-                <img src={laptop.src} className={classes.laptop} />
-              </div>
-              <motion.div
-                animate={rightScreenAnimation}
-                className={classes.screen_container}
-              >
-                <div className={classes.screen_text_container_right}>
-                  <div className={classes.social_container}>
-                    <a
-                      className={classes.link}
-                      target={"_blank"}
-                      href="https://www.linkedin.com/in/hamza-khalid-5a40931a5/"
-                    >
-                      <img
-                        src={linkedin_icon.src}
-                        className={classes.linkedin_icon}
-                      />
-                      <p className={classes.linkedin}>LinkedIn!</p>
-                    </a>
-                  </div>
-
-                  <div className={classes.social_container_2}>
+              <div className={classes.laptop_text_container}>
+                <span id="rotate"></span>
+              </div>{" "}
+              <img src={laptop.src} className={classes.laptop} />
+            </div>
+            <motion.div
+              animate={rightScreenAnimation}
+              className={classes.screen_container}
+            >
+              <div className={classes.screen_text_container_right}>
+                <div className={classes.social_container}>
+                  <a
+                    className={classes.link}
+                    target={"_blank"}
+                    href="https://www.linkedin.com/in/hamza-khalid-5a40931a5/"
+                  >
                     <img
-                      src={resume_icon.src}
-                      className={classes.resume_icon}
+                      src={linkedin_icon.src}
+                      className={classes.linkedin_icon}
                     />
-                    <p className={classes.resume_text}>View Resume</p>
-                  </div>
+                    <p className={classes.linkedin}>LinkedIn!</p>
+                  </a>
                 </div>
-                <img src={screen2.src} className={classes.screen} />
-              </motion.div>
-              <div className={classes.cup_container}>
-                <div className={classes.cup_wrapper}>
-                  <img src={cup.src} className={classes.cup} />
-                  <img src={smoke.src} className={classes.smoke1} />
+
+                <div className={classes.social_container_2}>
+                  <img src={resume_icon.src} className={classes.resume_icon} />
+                  <p className={classes.resume_text}>View Resume</p>
                 </div>
               </div>
+              <img src={screen2.src} className={classes.screen} />
+            </motion.div>
+            <div className={classes.cup_container}>
+              <div className={classes.cup_wrapper}>
+                <img src={cup.src} className={classes.cup} />
+                <img src={smoke.src} className={classes.smoke1} />
+              </div>
+            </div>
+            <div
+              onClick={handleToggleMusic}
+              className={classes.speaker_container}
+            >
               <div
-                onClick={handleToggleMusic}
-                className={classes.speaker_container}
+                className={
+                  isMusicOn ? classes.speaker_top : classes.speaker_top_off
+                }
               >
+                <img
+                  src={music_logo.src}
+                  className={
+                    isMusicOn ? classes.music_logo : classes.music_logo_off
+                  }
+                />
+                <img
+                  src={music_logo_2.src}
+                  className={
+                    isMusicOn ? classes.music_logo_2 : classes.music_logo_off
+                  }
+                />
+              </div>
+              <div className={classes.speaker_body}>
                 <div
                   className={
-                    isMusicOn ? classes.speaker_top : classes.speaker_top_off
+                    isMusicOn ? classes.power_button : classes.power_button_off
                   }
-                >
-                  <img
-                    src={music_logo.src}
-                    className={
-                      isMusicOn ? classes.music_logo : classes.music_logo_off
-                    }
-                  />
-                  <img
-                    src={music_logo_2.src}
-                    className={
-                      isMusicOn ? classes.music_logo_2 : classes.music_logo_off
-                    }
-                  />
-                </div>
-                <div className={classes.speaker_body}>
-                  <div
-                    className={
-                      isMusicOn
-                        ? classes.power_button
-                        : classes.power_button_off
-                    }
-                  ></div>
-                </div>
+                ></div>
               </div>
             </div>
-            <div className={classes.table_top}>
-              <div className={classes.table_top_cover}></div>
-            </div>
-            <div className={classes.table_mid} />
-            <div className={classes.legs_container}>
-              <div className={classes.table_leg_left} />
-              <div className={classes.table_leg_right} />
-            </div>
+          </div>
+          <div className={classes.table_top}>
+            <div className={classes.table_top_cover}></div>
+          </div>
+          <div className={classes.table_mid} />
+          <div className={classes.legs_container}>
+            <div className={classes.table_leg_left} />
+            <div className={classes.table_leg_right} />
           </div>
         </div>
-        <AboutMeSection id="containerElement" />
-        <PortfolioSection />
-        <ContactScreen />
       </div>
+    
+      <AboutMeSection id="containerElement" />
+          <PortfolioSection />
+          {/* <ContactScreen /> */}
     </div>
   );
 }

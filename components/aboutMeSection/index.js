@@ -18,6 +18,7 @@ import { useAnimation, motion } from "framer-motion";
 import "react-tooltip/dist/react-tooltip.css";
 import { Tooltip as ReactTooltip } from "react-tooltip";
 import Marquee from "react-fast-marquee";
+import ParallaxSection from "../parallaxSection";
 
 function AboutMeSection() {
   const [darkTheme, setDarkTheme] = useState();
@@ -27,6 +28,7 @@ function AboutMeSection() {
   });
   const headingUnderline = useAnimation();
   const textAnimation = useAnimation();
+  const [heightForAboutMe, setHeightForAboutMe] = useState('100vh');
 
   useEffect(() => {
     if (inView) {
@@ -54,10 +56,10 @@ function AboutMeSection() {
     }
   }, [inView]);
 
-  console.log(inView);
+  console.log(heightForAboutMe);
 
   return (
-    <div ref={ref} className={classes.container}>
+    <div ref={ref} className={classes.container} style={{height: heightForAboutMe, minHeight: heightForAboutMe}}>
       <h2 className={classes.heading_left}>ABOUT{"  "}ME</h2>
       <h2 className={classes.heading_right}>ABOUT{"  "}ME</h2>
 
@@ -70,7 +72,7 @@ function AboutMeSection() {
       </a>
 
       <div className={classes.content}>
-        <div className={classes.heading_container}>
+        {/* <div className={classes.heading_container}>
           <h2 className={classes.heading}>&lt; Creative Developer /&gt;</h2>
 
           <motion.div
@@ -84,39 +86,15 @@ function AboutMeSection() {
           className={classes.description_heading}
         >
           About me
-        </motion.div>
-        <motion.div animate={textAnimation} className={classes.description}>
-          Hey, I’m working as a Full Stack Developer. I love making stuff happen
-          through code, particularly building up brand identities through
-          careful design strategies and then formulating a solution to turn an
-          idea into an amazing looking piece of tech. I was an art fan since
-          forever, and got into coding with my CS degree, so when you combine
-          the two, you get a <span>Frontend-Heavy Full Stack Developer! </span>
-        </motion.div>
+        </motion.div> */}
 
-        <motion.div
-          animate={textAnimation}
-          className={classes.description_heading}
-        >
-          What I do
-        </motion.div>
-        <motion.div animate={textAnimation} className={classes.description}>
-          I've worked with various we3.0 and web2.0 apps, which involved
-          Frontend/Backend Dev with Crypto Wallet integration libraries like
-          <span> web3-React, web3Modal</span>, and web3 libraries{" "}
-          <span>Web3.js</span> and <span>Ethers.js</span>. I'm also well versed
-          with several <span style={{ color: "orange" }}>AWS </span> services,
-          including{" "}
-          <span style={{ color: "orange" }}>
-            Amplify, S3, Cognito, DynamoDB, AppSync.
-          </span>
-        </motion.div>
-
-        <motion.div animate={textAnimation} className={classes.marquee_heading}>
+        <ParallaxSection setHeightForAboutMe={setHeightForAboutMe}/>
+      
+      <div className={classes.marquee_content}>
+      <motion.div animate={textAnimation} className={classes.marquee_heading}>
           Tools and Languages I work with
         </motion.div>
         <div className={classes.marquee_container}>
-          {/* <marquee className={classes.marquee_content}> */}
           <Marquee gradient={false} speed={60}>
             <img
               id="my-element"
@@ -174,6 +152,8 @@ function AboutMeSection() {
             {/* </marquee> */}
           </Marquee>
         </div>
+      </div>
+    
       </div>
     </div>
   );

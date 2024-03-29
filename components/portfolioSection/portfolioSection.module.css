@@ -1,5 +1,6 @@
 .container {
   width: 100%;
+  min-height: 100vh;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -8,6 +9,8 @@
   position: relative;
   overflow-y: hidden;
   transition: background-image 0.4s ease-in-out;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 .heading {
   font-size: 160px;

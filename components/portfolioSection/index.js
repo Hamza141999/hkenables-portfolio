@@ -2,20 +2,11 @@ import React, { useState, useEffect } from "react";
 import classes from "./portfolioSection.module.css";
 import bg from "../../public/assets/portfolio_section/rentto.png";
 import github from "../../public/assets/aboutme_section_assets/github.svg";
-import ai from "../../public/assets/aboutme_section_assets/ai.svg";
-import aws from "../../public/assets/aboutme_section_assets/aws.svg";
-import dart from "../../public/assets/aboutme_section_assets/dart.svg";
-import figma from "../../public/assets/aboutme_section_assets/figma.svg";
-import js from "../../public/assets/aboutme_section_assets/js.svg";
-import metamask from "../../public/assets/aboutme_section_assets/metamask.svg";
-import next from "../../public/assets/aboutme_section_assets/next.svg";
-import psd from "../../public/assets/aboutme_section_assets/psd.svg";
-import react from "../../public/assets/aboutme_section_assets/react.svg";
-import ts from "../../public/assets/aboutme_section_assets/ts.svg";
-import graph from "../../public/assets/aboutme_section_assets/graphql.svg";
 import { useAnimation, useAnimationFrame, motion } from "framer-motion";
 import right_arrow from "../../public/assets/portfolio_section/right_arrow.svg";
 import { PROJECTS_DATA } from "../../projectsData";
+import Link from "next/link";
+import ProjectModal from "./modal";
 
 function PortfolioSection() {
   const delay = (ms) => new Promise((res) => setTimeout(res, ms));
@@ -24,6 +15,7 @@ function PortfolioSection() {
   const techAnimation = useAnimation();
   const [projectData, setProjectData] = useState();
   const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
+  const [openModal, setOpenModal] = useState(false);
 
   useEffect(() => {
     if (PROJECTS_DATA) {
@@ -117,6 +109,7 @@ function PortfolioSection() {
       }}
       className={classes.container}
     >
+      <ProjectModal open={openModal} setOpen={setOpenModal}/>
       <div
         className={classes.left_panel}
         style={{ backgroundColor: projectData?.dark_color }}
@@ -192,13 +185,21 @@ function PortfolioSection() {
             <div className={classes.code_link_tab}>
               <img src={github.src} />
             </div>
-            <div
-              style={{ backgroundColor: projectData?.dark_color }}
-              className={classes.live_link_tab}
-            >
-              <p>LIVE LINK</p>
-            </div>
+            {projectData?.isLive && (
+              <Link target={"_blank"} href={projectData?.live_link}>
+              <div
+                style={{ backgroundColor: projectData?.dark_color }}
+                className={classes.live_link_tab}
+              >
+                <p>LIVE LINK</p>
+              </div>
+              </Link>
+            )}
+
             <img
+              onClick={()=>{
+                setOpenModal(true);
+              }}
               src={projectData?.project_image.src}
               className={classes.project_pic}
             />
