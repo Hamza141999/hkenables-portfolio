@@ -1,12 +1,15 @@
 import { useEffect, useRef } from "react";
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
-import bg from "../../public/assets/1.jpg";
+import { motion, useScroll, useTransform } from "framer-motion";
 import classes from "./parallax.module.css";
 import web_dev from "../../public/assets/about_me/web_dev.png";
 import react_native from "../../public/assets/about_me/react_native.png";
 import web3 from "../../public/assets/about_me/web3.png";
 import cool from "../../public/assets/about_me/cool.png";
 import boring from "../../public/assets/about_me/boring.png";
+import FirstSection from "../aboutMeSections/firstSection";
+import WebSection from "../aboutMeSections/webSection";
+import Web3Section from "../aboutMeSections/web3Section";
+import MobileSection from "../aboutMeSections/mobileSection";
 
 function useParallax(value, distance) {
   return useTransform(value, [0, 1], [-distance, distance]);
@@ -46,27 +49,104 @@ function Image({ image, index }) {
   const { scrollYProgress } = useScroll({ target: ref });
   const y = useParallax(scrollYProgress, 350);
 
+  const headingVariants = {
+    offscreen: {
+      y: -200,
+    },
+    onscreen: {
+      y: 0, // Change the x value to animate in view
+      transition: {
+        ease: "circOut",
+        duration: 1.2,
+      },
+    },
+  };
+
+  const gadgetVariantsLeft = {
+    offscreen: {
+      x: -200,
+    },
+    onscreen: {
+      x: 0, // Change the x value to animate in view
+      transition: {
+        ease: "circOut",
+        duration: 0.8,
+      },
+    },
+  };
+
+  const gadgetVariantsRight = {
+    offscreen: {
+      x: 200,
+    },
+    onscreen: {
+      x: 0, // Change the x value to animate in view
+      transition: {
+        ease: "circOut",
+        duration: 0.8,
+      },
+    },
+  };
+
+  const reactSecondaryLaptop = {
+    offscreen: {
+      x: 200,
+    },
+    onscreen: {
+      x: 0, // Change the x value to animate in view
+      transition: {
+        ease: "circOut",
+        duration: 0.8,
+      },
+    },
+  };
+
   return (
     <motion.section
       className={classes.section}
+      initial="offscreen"
+      whileInView="onscreen"
+      viewport={{ amount: 0.2 }}
     >
-      <div
-        ref={ref}
-        style={{
-          justifyContent: index % 2 === 0 ? "flex-start" : "flex-end",
-        }}
-      >
-        {image?.img && (
-          <div className={classes.parallax_img_container}>
+      {image?.img && (
+        <motion.div
+          ref={ref}
+          style={{
+            justifyContent: index % 2 === 0 ? "flex-start" : "flex-end",
+            position: "relative"
+          }}
+        >
+          <motion.div
+            variants={
+              index % 2 === 0 ? gadgetVariantsRight : gadgetVariantsLeft
+            }
+            className={classes.parallax_img_container}
+          >
             <img
               className={classes.parallax_img}
               src={image?.img?.src}
               alt="A London skyscraper"
             />
-          </div>
-        )}
-      </div>
+          </motion.div>
+
+          <motion.div
+            variants={
+              index % 2 === 0 ? gadgetVariantsRight : gadgetVariantsLeft
+            }
+            className={classes.parallax_img_container_secondary}
+          >
+            <img
+              className={classes.parallax_img}
+              src={image?.img?.src}
+              alt="A London skyscraper"
+            />
+          </motion.div>
+
+        </motion.div>
+      )}
+
       <motion.h2
+        variants={headingVariants}
         className={image?.isText ? classes.big_heading : classes.h2}
         style={{
           left: !image?.isText
@@ -74,7 +154,7 @@ function Image({ image, index }) {
             : "initial",
           right: !image?.isText
             ? index % 2 !== 0 && "calc(45% + 70px)"
-            : "initial"
+            : "initial",
           // y,
         }}
       >
@@ -85,12 +165,12 @@ function Image({ image, index }) {
 }
 
 export default function ParallaxSection() {
-
   return (
     <div className={classes.parallax_container}>
-      {aboutMeArray?.map((image, index) => (
-        <Image key={index} index={index} image={image} />
-      ))}
+      <FirstSection />
+      <WebSection />
+      <Web3Section />
+      <MobileSection />
     </div>
   );
 }

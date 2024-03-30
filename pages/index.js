@@ -155,10 +155,12 @@ export default function Home() {
 
   return (
     <div
-      style={{
-        // height: !displayScreen ? "100vh" : "100vh",
-        // overflow: !displayScreen && "hidden",
-      }}
+      style={
+        {
+          // height: !displayScreen ? "100vh" : "100vh",
+          // overflow: !displayScreen && "hidden",
+        }
+      }
       className={classes.outer_container}
     >
       <div
@@ -318,10 +320,10 @@ export default function Home() {
           </div>
         </div>
       </div>
-    
+
       <AboutMeSection id="containerElement" />
-          <PortfolioSection />
-          {/* <ContactScreen /> */}
+      <PortfolioSection />
+      {/* <ContactScreen /> */}
     </div>
   );
 }
