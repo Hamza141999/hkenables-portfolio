@@ -193,7 +193,7 @@
     font-size: 35px;
   }
   .aboutme_text {
-    font-size: 18px;
+    font-size: 14px;
     text-align: center;
   }
   .section {
@@ -225,7 +225,30 @@
   .parallax_img_container {
     width: 80%;
   }
-  .heading_underline{
+  .heading_underline {
     height: 12px;
+  }
+  .small_heading {
+    font-size: 35px;
+    width: 100%;
+  }
+  .transform_section {
+    width: 80%;
+    max-height: 50vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    align-items: center;
+    margin-top: 20px;
+  }
+  .boring_div > img,
+  .cool_div > img {
+    width: 80%;
+  }
+  .why_me_section {
+    width: 95%;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
   }
 }

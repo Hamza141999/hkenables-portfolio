@@ -357,7 +357,7 @@
     margin-right: 30px;
   }
   .marquee_heading {
-    font-size: 30px;
+    font-size: 20px;
   }
 }
 @media screen and (max-width: 530px) {
@@ -377,5 +377,14 @@
   .description {
     width: 95%;
     font-size: 12px;
+  }
+  .bottom_pattern_1 {
+    width: 370px;
+  }
+  .github_icon {
+    left: 20px;
+    bottom: 20px;
+    width: 60px;
+    height: 60px;
   }
 }

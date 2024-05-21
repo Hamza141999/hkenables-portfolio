@@ -7,10 +7,12 @@ import Lottie from "lottie-react";
 import animation1 from "../../public/assets/about_me/animation1.json";
 import thumbs_down from "../../public/assets/why_me_assets/thumbs_down.json";
 import thumbs_up from "../../public/assets/why_me_assets/thumbs_up.json";
+import { useWindowSize } from "../../utils.js";
 
 function WhyMe({ lastSectionInView }) {
   const [isAnimationComplete, setAnimationComplete] = useState(false);
   const [isLottiePlaying, setLottiePlaying] = useState(false);
+  const { width } = useWindowSize();
 
   useEffect(() => {
     if (isAnimationComplete && !isLottiePlaying) {
@@ -105,7 +107,7 @@ function WhyMe({ lastSectionInView }) {
           {isLottiePlaying && (
             <Lottie
               animationData={animation1}
-              style={{ width: "130px", height: "130px", rotate: "140deg" }}
+              style={{ width: width < 900 ? "60px" : "130px", height: width < 900 ? "60px" :  "130px", rotate: width > 90 ? "-150deg" : "140deg" }}
               autoplay={isLottiePlaying}
               loop={false}
             />
