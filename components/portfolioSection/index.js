@@ -23,7 +23,7 @@ function PortfolioSection() {
     }
   }, [PROJECTS_DATA]);
 
-  const handleTriggleProjectPictureAnimation = async () => {
+  const handleTriggleProjectPictureAnimation = async (toRight) => {
     splashScreenAnimation.start({
       x: "6vw",
       opacity: 0,
@@ -32,6 +32,7 @@ function PortfolioSection() {
         duration: 0.5,
       },
     });
+
     await delay(250);
 
     splashScreenAnimation.start({
@@ -42,14 +43,27 @@ function PortfolioSection() {
         duration: 0.5,
       },
     });
+
     await delay(250);
-    if (PROJECTS_DATA?.length === currentProjectIndex + 1) {
-      setCurrentProjectIndex(0);
-      setProjectData(PROJECTS_DATA[0]);
+
+    if (toRight) {
+      if (PROJECTS_DATA?.length === currentProjectIndex + 1) {
+        setCurrentProjectIndex(0);
+        setProjectData(PROJECTS_DATA[0]);
+      } else {
+        setProjectData(PROJECTS_DATA[currentProjectIndex + 1]);
+        setCurrentProjectIndex(currentProjectIndex + 1);
+      }
     } else {
-      setProjectData(PROJECTS_DATA[currentProjectIndex + 1]);
-      setCurrentProjectIndex(currentProjectIndex + 1);
+      if (PROJECTS_DATA?.length === currentProjectIndex - 1) {
+        setCurrentProjectIndex(0);
+        setProjectData(PROJECTS_DATA[0]);
+      } else {
+        setProjectData(PROJECTS_DATA[currentProjectIndex - 1]);
+        setCurrentProjectIndex(currentProjectIndex - 1);
+      }
     }
+
     splashScreenAnimation.start({
       x: 0,
       opacity: 1,
@@ -79,6 +93,7 @@ function PortfolioSection() {
     });
 
     await delay(500);
+
     headingAnimation.start({
       y: 0,
       opacity: 1,
@@ -106,7 +121,7 @@ function PortfolioSection() {
       }}
       className={classes.container}
     >
-      <ProjectModal open={openModal} setOpen={setOpenModal}/>
+      <ProjectModal open={openModal} setOpen={setOpenModal} />
       <div
         className={classes.left_panel}
         style={{ backgroundColor: projectData?.dark_color }}
@@ -116,30 +131,17 @@ function PortfolioSection() {
         className={classes.bottom_panel}
       />
       <div className={classes.left_panel_blurred} />
-      <div
-        // style={{ backgroundColor: projectData?.primary_color }}
-        className={classes.overlay}
-      ></div>
+      <div className={classes.overlay}></div>
       <div className={classes.tech_stack_container}>
         <motion.div animate={techAnimation} className={classes.icons_container}>
-          <img
-            onClick={async () => {
-              handleTriggleProjectPictureAnimation();
-              await delay(150);
-              handleToggleHeadingAnimation();
-            }}
-            className={classes.right_arrow}
-            src={right_arrow.src}
-          />
+          <div></div>
           {projectData?.project_tech?.map((tech, index) => (
             <img key={index} src={tech.src} />
           ))}
         </motion.div>
       </div>
 
-      <div className={classes.overlay_blurred}>
-        <h2>asdsad</h2>
-      </div>
+      <div className={classes.overlay_blurred}></div>
 
       <h1 className={classes.heading}>PORTFOLIO</h1>
       <div className={classes.content_container}>
@@ -184,22 +186,46 @@ function PortfolioSection() {
             </div>
             {projectData?.isLive && (
               <Link target={"_blank"} href={projectData?.live_link}>
-              <div
-                style={{ backgroundColor: projectData?.dark_color }}
-                className={classes.live_link_tab}
-              >
-                <p>LIVE LINK</p>
-              </div>
+                <div
+                  style={{ backgroundColor: projectData?.dark_color }}
+                  className={classes.live_link_tab}
+                >
+                  <p>LIVE LINK</p>
+                </div>
               </Link>
             )}
 
             <img
-              onClick={()=>{
+              onClick={() => {
                 setOpenModal(true);
               }}
               src={projectData?.project_image.src}
               className={classes.project_pic}
             />
+
+            <div
+              onClick={async () => {
+                handleTriggleProjectPictureAnimation(true);
+                await delay(150);
+                handleToggleHeadingAnimation();
+              }}
+              className={classes.right_arrow_container}
+              style={{backgroundColor: projectData?.dark_color}}
+            >
+              <img className={classes.right_arrow} src={right_arrow.src} />
+            </div>
+
+            <div
+              onClick={async () => {
+                handleTriggleProjectPictureAnimation(false);
+                await delay(150);
+                handleToggleHeadingAnimation();
+              }}
+              style={{backgroundColor: projectData?.dark_color}}
+              className={classes.left_arrow_container}
+            >
+              <img className={classes.left_arrow} src={right_arrow.src} />
+            </div>
           </motion.div>
         </div>
       </div>

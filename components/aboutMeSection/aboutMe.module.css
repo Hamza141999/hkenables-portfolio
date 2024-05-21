@@ -327,7 +327,7 @@
     right: -40%;
   }
   .content {
-    width: 90%;
+    width: 100%;
   }
 }
 @media screen and (max-width: 650px) {
@@ -342,7 +342,7 @@
   }
   .content {
     width: 100%;
-    padding-left: 20px;
+    padding-left: 0px;
   }
   .description {
     width: 90%;
@@ -372,7 +372,7 @@
   }
   .content {
     width: 100%;
-    padding-left: 20px;
+    padding-left: 0px;
   }
   .description {
     width: 95%;

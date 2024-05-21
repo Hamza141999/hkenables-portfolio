@@ -30,7 +30,7 @@ function Web3Section() {
     },
   };
 
-  const textAnimation = {
+  const textAnimation = (delay) => ({
     offscreen: {
       opacity: 0,
     },
@@ -39,10 +39,10 @@ function Web3Section() {
       transition: {
         ease: "easeOut",
         duration: 0.5,
-        delay: 1.1
+        delay: delay,
       },
     },
-  };
+  });
 
   return (
     <motion.section
@@ -72,16 +72,30 @@ function Web3Section() {
           className={classes.text_container}
           style={{
             left: "calc(36% + 70px)",
+            rowGap: "12px",
+            width: "55%",
           }}
         >
-          <motion.div variants={headingVariants} className={classes.heading_container}>
+          <motion.div
+            variants={headingVariants}
+            className={classes.heading_container}
+          >
             <motion.h2 className={classes.h2}>Web3 DApps</motion.h2>
-            <div className={classes.heading_underline} />
+            <div
+              style={{ backgroundColor: "rgb(255, 149, 0)" }}
+              className={classes.heading_underline}
+            />
           </motion.div>
-          <motion.p variants={textAnimation} className={classes.text}>
-            3+ years of experience making amazing webapps. Solo developed apps
-            from ground up. Developed a variety of types ranging from Web3 apps
-            to real estate portals
+          <motion.p variants={textAnimation(0.5)} className={classes.text}>
+          <span>₿</span> Developing your web3 app with crypto wallet integrations
+          </motion.p>
+
+          <motion.p variants={textAnimation(0.7)} className={classes.text}>
+          <span>🧩</span>Integrating smart contracts with the web app/mobile app
+          </motion.p>
+
+          <motion.p variants={textAnimation(0.9)} className={classes.text}>
+          <span>🔐</span>Building a personalised web3 marketplace alongwith your web3 DApp, ensuring secure buying/purchasing
           </motion.p>
         </motion.div>
       </motion.div>

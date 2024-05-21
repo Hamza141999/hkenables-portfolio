@@ -1067,10 +1067,20 @@
 
 @media screen and (max-width: 600px) {
   .heading_container {
-    position: relative;
-    margin-top: 30%;
+    position: absolute;
+    top: -178%;
     z-index: 40;
-    margin-right: 12px;
+    /* margin-right: 12px; */
+  }
+  .heading_container h2 {
+    font-size: 30px;
+  }
+  .heading_container h3 {
+    font-size: 20px;
+  }
+  .heading_underline {
+    height: 10px;
+    margin-top: -14px;
   }
   .laptop_container {
     height: 24%;
@@ -1108,6 +1118,14 @@
     left: 65px;
     height: 80%;
     width: 160%;
+  }
+  .screen_text_container_right{
+    width: 120px;
+    right: 22px;
+    left: initial;
+    height: 55%;
+    top: 38px;
+    margin: initial;
   }
   .speaker_container {
     display: none;

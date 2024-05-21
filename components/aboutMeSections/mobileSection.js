@@ -30,7 +30,7 @@ function MobileSection() {
     },
   };
 
-  const textAnimation = {
+  const textAnimation = (delay) => ({
     offscreen: {
       opacity: 0,
     },
@@ -39,10 +39,10 @@ function MobileSection() {
       transition: {
         ease: "easeOut",
         duration: 0.5,
-        delay: 1.1
+        delay: delay,
       },
     },
-  };
+  });
 
   return (
     <motion.section
@@ -69,20 +69,26 @@ function MobileSection() {
         </motion.div>
 
         <motion.div
-          
           className={classes.text_container}
           style={{
             right: "calc(36% + 70px)",
           }}
         >
-          <motion.div variants={headingVariants} className={classes.heading_container}>
-            <motion.h2 className={classes.h2}>React/NextJS Developer</motion.h2>
+          <motion.div
+            variants={headingVariants}
+            className={classes.heading_container}
+          >
+            <motion.h2 className={classes.h2}>React Native Apps</motion.h2>
             <div className={classes.heading_underline} />
           </motion.div>
-          <motion.p variants={textAnimation} className={classes.text}>
-            3+ years of experience making amazing webapps. Solo developed apps
-            from ground up. Developed a variety of types ranging from Web3 apps
-            to real estate portals
+          <motion.p variants={textAnimation(0.5)} className={classes.text}>
+            <span>🛠️</span>Complete mobile app development with a flawless and
+            unique mobile app design
+          </motion.p>
+
+          <motion.p variants={textAnimation(0.7)} className={classes.text}>
+            <span>₿</span>Complete crypto wallet integrations in case of Web3
+            DApps
           </motion.p>
         </motion.div>
       </motion.div>

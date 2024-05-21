@@ -10,6 +10,8 @@ import FirstSection from "../aboutMeSections/firstSection";
 import WebSection from "../aboutMeSections/webSection";
 import Web3Section from "../aboutMeSections/web3Section";
 import MobileSection from "../aboutMeSections/mobileSection";
+import WhyMe from "../aboutMeSections/whyMe";
+import { useInView } from "react-intersection-observer";
 
 function useParallax(value, distance) {
   return useTransform(value, [0, 1], [-distance, distance]);
@@ -113,7 +115,7 @@ function Image({ image, index }) {
           ref={ref}
           style={{
             justifyContent: index % 2 === 0 ? "flex-start" : "flex-end",
-            position: "relative"
+            position: "relative",
           }}
         >
           <motion.div
@@ -141,7 +143,6 @@ function Image({ image, index }) {
               alt="A London skyscraper"
             />
           </motion.div>
-
         </motion.div>
       )}
 
@@ -165,12 +166,46 @@ function Image({ image, index }) {
 }
 
 export default function ParallaxSection() {
+
+  const { ref: firstSectionRef, inView: firstSectionInView } = useInView({
+    threshold: 0.99,
+  });
+
+  useEffect(() => {
+    let timer;
+    const outerContainer = document.getElementById('outer_container');
+
+    if (firstSectionInView && outerContainer) {
+      outerContainer.style.overflowY = 'hidden';
+      console.log("Hidden");
+
+      timer = setTimeout(() => {
+        if (outerContainer) {
+          outerContainer.style.overflowY = 'scroll';
+          console.log("Scroll");
+        }
+      }, 1000);
+    } else {
+      timer = setTimeout(() => {
+        if (outerContainer) {
+          outerContainer.style.overflowY = 'scroll';
+          console.log("Scroll");
+        }
+      }, 1000);
+    }
+
+    return () => clearTimeout(timer);
+  }, [firstSectionInView]);
+
+  console.log("firstSectionInView: ", firstSectionInView);
+
   return (
     <div className={classes.parallax_container}>
-      <FirstSection />
+      <FirstSection firstSectionRef={firstSectionRef} />
       <WebSection />
       <Web3Section />
       <MobileSection />
+      <WhyMe />
     </div>
   );
 }

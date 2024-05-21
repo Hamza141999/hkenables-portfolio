@@ -10,7 +10,6 @@ import screen from "../public/assets/banner_section_assets/screen.svg";
 import screen2 from "../public/assets/banner_section_assets/screen2.svg";
 import cup from "../public/assets/banner_section_assets/cup.svg";
 import smoke from "../public/assets/banner_section_assets/smoke.svg";
-import down_arrow from "../public/assets/banner_section_assets/down_arrow.svg";
 import linkedin_icon from "../public/assets/banner_section_assets/linkedin_icon.svg";
 import resume_icon from "../public/assets/banner_section_assets/resume_icon.svg";
 import { animateScroll as scroll } from "react-scroll";
@@ -24,7 +23,8 @@ import { useAnimation, useAnimationFrame, motion } from "framer-motion";
 import PortfolioSection from "../components/portfolioSection";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
 import { useTheme } from "../contextAPI";
-import ContactScreen from "../components/contactSection";
+import Lottie from "lottie-react";
+import downArrow from "../public/assets/banner_section_assets/downArrowAnimation.json";
 
 export default function Home() {
   const [isMusicOn, setIsMusicOn] = useState(true);
@@ -124,14 +124,16 @@ export default function Home() {
     }
   }, [displayScreen]);
 
-  const music_url =
-    "https://auqta-bucket.s3.ap-southeast-1.amazonaws.com/bg_music.mp3";
-
   const handleToggleMusic = async () => {
     setIsMusicOn(!isMusicOn);
   };
 
-  var terms = ["Web 3.0 Dapps", "Amazing Frontends", "Websites/Webapps"];
+  var terms = [
+    "Web 3.0 Dapps",
+    "Amazing Frontends",
+    "Websites/Webapps",
+    "Solution Design",
+  ];
 
   useEffect(() => {
     function rotateTerm() {
@@ -146,23 +148,9 @@ export default function Home() {
     $(rotateTerm);
   }, []);
 
-  useEffect(() => {
-    const audio = new Audio(
-      "https://auqta-bucket.s3.ap-southeast-1.amazonaws.com/bg_music.mp3"
-    );
-    audio?.play();
-  }, []);
-
   return (
-    <div
-      style={
-        {
-          // height: !displayScreen ? "100vh" : "100vh",
-          // overflow: !displayScreen && "hidden",
-        }
-      }
-      className={classes.outer_container}
-    >
+    <div id="outer_container" className={classes.outer_container}>
+
       <div
         style={{ backgroundColor: !darkTheme ? "white" : "black" }}
         className={classes.dark_mode_btn_container}
@@ -203,11 +191,15 @@ export default function Home() {
 
         <div ref={inViewRef} className={classes.table_container}>
           <div className={classes.table_top_content_container}>
-            <img
-              onClick={scrollTo}
-              className={classes.down_arrow}
-              src={down_arrow.src}
-            />
+            <div className={classes.down_arrow}>
+              <Lottie
+                animationData={downArrow}
+                style={{ width: "60px", height: "60px" }}
+                autoplay={true}
+                loop={true}
+              />
+            </div>
+
             <motion.div
               animate={leftScreenAnimation}
               className={classes.screen_container}
