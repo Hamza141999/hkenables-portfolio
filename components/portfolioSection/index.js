@@ -159,12 +159,14 @@ function PortfolioSection() {
             />
           </motion.div>
 
-          <div className={classes.tag_1}>
-            <p>FREELANCE PROJECT</p>
-          </div>
+          <div className={classes.tags}>
+            <div className={classes.tag_1}>
+              <p>FREELANCE PROJECT</p>
+            </div>
 
-          <div className={classes.tag_2}>
-            <p>SOLO FRONTEND DEV</p>
+            <div className={classes.tag_2}>
+              <p>SOLO FRONTEND DEV</p>
+            </div>
           </div>
         </div>
 
@@ -210,7 +212,7 @@ function PortfolioSection() {
                 handleToggleHeadingAnimation();
               }}
               className={classes.right_arrow_container}
-              style={{backgroundColor: projectData?.dark_color}}
+              style={{ backgroundColor: projectData?.dark_color }}
             >
               <img className={classes.right_arrow} src={right_arrow.src} />
             </div>
@@ -221,7 +223,7 @@ function PortfolioSection() {
                 await delay(150);
                 handleToggleHeadingAnimation();
               }}
-              style={{backgroundColor: projectData?.dark_color}}
+              style={{ backgroundColor: projectData?.dark_color }}
               className={classes.left_arrow_container}
             >
               <img className={classes.left_arrow} src={right_arrow.src} />
