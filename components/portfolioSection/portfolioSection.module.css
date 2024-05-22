@@ -343,7 +343,7 @@
   }
   .content_container {
     margin-top: 0px;
-    height: 95%;
+    height: 87%;
   }
   .tech_stack_container {
     bottom: 4%;
@@ -370,5 +370,8 @@
   }
   .icons_container img:nth-child(2) {
     margin-left: 30px;
+  }
+  .heading {
+    font-size: 70px;
   }
 }
