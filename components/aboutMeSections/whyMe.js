@@ -20,9 +20,11 @@ function WhyMe({ lastSectionInView }) {
     }
   }, [isAnimationComplete, isLottiePlaying]);
 
+  console.log(width);
+
   const headingVariants = {
     offscreen: {
-      y: -150,
+      y: -5,
     },
     onscreen: {
       y: 0,
@@ -107,7 +109,11 @@ function WhyMe({ lastSectionInView }) {
           {isLottiePlaying && (
             <Lottie
               animationData={animation1}
-              style={{ width: width < 900 ? "60px" : "130px", height: width < 900 ? "60px" :  "130px", rotate: width > 90 ? "-150deg" : "140deg" }}
+              style={{
+                width: width < 900 ? "60px" : "130px",
+                height: width < 900 ? "60px" : "130px",
+                rotate: width > 90 ? "-150deg" : "140deg",
+              }}
               autoplay={isLottiePlaying}
               loop={false}
             />

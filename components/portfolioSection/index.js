@@ -183,50 +183,52 @@ function PortfolioSection() {
             animate={splashScreenAnimation}
             className={classes.picture_section}
           >
-            <div className={classes.code_link_tab}>
-              <img src={github.src} />
-            </div>
-            {projectData?.isLive && (
-              <Link target={"_blank"} href={projectData?.live_link}>
-                <div
-                  style={{ backgroundColor: projectData?.dark_color }}
-                  className={classes.live_link_tab}
-                >
-                  <p>LIVE LINK</p>
-                </div>
-              </Link>
-            )}
+            <div className={classes.picture_section_inner}>
+              <div className={classes.code_link_tab}>
+                <img src={github.src} />
+              </div>
+              {projectData?.isLive && (
+                <Link target={"_blank"} href={projectData?.live_link}>
+                  <div
+                    style={{ backgroundColor: projectData?.dark_color }}
+                    className={classes.live_link_tab}
+                  >
+                    <p>LIVE LINK</p>
+                  </div>
+                </Link>
+              )}
 
-            <img
-              onClick={() => {
-                setOpenModal(true);
-              }}
-              src={projectData?.project_image.src}
-              className={classes.project_pic}
-            />
+              <img
+                onClick={() => {
+                  setOpenModal(true);
+                }}
+                src={projectData?.project_image.src}
+                className={classes.project_pic}
+              />
 
-            <div
-              onClick={async () => {
-                handleTriggleProjectPictureAnimation(true);
-                await delay(150);
-                handleToggleHeadingAnimation();
-              }}
-              className={classes.right_arrow_container}
-              style={{ backgroundColor: projectData?.dark_color }}
-            >
-              <img className={classes.right_arrow} src={right_arrow.src} />
-            </div>
+              <div
+                onClick={async () => {
+                  handleTriggleProjectPictureAnimation(true);
+                  await delay(150);
+                  handleToggleHeadingAnimation();
+                }}
+                className={classes.right_arrow_container}
+                style={{ backgroundColor: projectData?.dark_color }}
+              >
+                <img className={classes.right_arrow} src={right_arrow.src} />
+              </div>
 
-            <div
-              onClick={async () => {
-                handleTriggleProjectPictureAnimation(false);
-                await delay(150);
-                handleToggleHeadingAnimation();
-              }}
-              style={{ backgroundColor: projectData?.dark_color }}
-              className={classes.left_arrow_container}
-            >
-              <img className={classes.left_arrow} src={right_arrow.src} />
+              <div
+                onClick={async () => {
+                  handleTriggleProjectPictureAnimation(false);
+                  await delay(150);
+                  handleToggleHeadingAnimation();
+                }}
+                style={{ backgroundColor: projectData?.dark_color }}
+                className={classes.left_arrow_container}
+              >
+                <img className={classes.left_arrow} src={right_arrow.src} />
+              </div>
             </div>
           </motion.div>
         </div>

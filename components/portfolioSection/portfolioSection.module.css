@@ -13,7 +13,7 @@
   scroll-snap-stop: always;
 }
 .heading {
-  font-size: 160px;
+  font-size: 130px;
   position: absolute;
   font-family: "cd-b";
   -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
@@ -243,7 +243,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  row-gap: 20px;
+  row-gap: 12px;
 }
 .description_section h2 {
   color: white;
@@ -261,14 +261,27 @@
   display: flex;
   justify-content: center;
   position: relative;
+  border-radius: 20px !important;
+}
+.picture_section_inner {
+  overflow: hidden;
+  height: 100%;
+  border-radius: 20px !important;
 }
 .project_pic {
   height: 100%;
-  object-fit: fill;
+  object-fit: cover;
   border-radius: 20px !important;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.325);
   z-index: 11;
+  transition: ease-out 200ms;
 }
+
+.project_pic:hover {
+  transition: ease-out 200ms;
+  transform: scale(1.03);
+}
+
 .live_link_tab,
 .code_link_tab {
   position: absolute;
@@ -335,11 +348,21 @@
     margin-top: 0px;
     justify-content: flex-start;
     align-items: center;
-    row-gap: 40px;
+    row-gap: 50px;
   }
   .description_section {
     width: 100%;
     height: fit-content;
+  }
+  .description_section p{
+    font-size: 12px;
+  }
+  .tag_1 p, .tag_2 p{
+    font-size: 10px;
+  }
+  .tag_1, .tag_2 {
+    padding: 4px 10px 4px 10px;
+    height: 20px;
   }
   .content_container {
     margin-top: 0px;
@@ -347,10 +370,11 @@
   }
   .tech_stack_container {
     bottom: 4%;
+    height: 65px;
   }
   .picture_section {
     height: initial;
-    width: 100%;
+    width: 95%;
     max-width: 650px;
   }
   .project_pic {
@@ -373,5 +397,22 @@
   }
   .heading {
     font-size: 70px;
+  }
+  .left_arrow_container,
+  .right_arrow_container {
+    width: 35px;
+    height: 35px;
+  }
+
+  .left_arrow,
+  .right_arrow {
+    width: 10px;
+    height: 10px;
+  }
+  .picture_section, .picture_section_inner, .project_pic {
+    border-radius: 14px !important;
+  }
+  .left_panel, .left_panel_blurred{
+    left: -602px;
   }
 }

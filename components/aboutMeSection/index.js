@@ -68,21 +68,6 @@ function AboutMeSection() {
       </a>
 
       <div className={classes.content}>
-        {/* <div className={classes.heading_container}>
-          <h2 className={classes.heading}>&lt; Creative Developer /&gt;</h2>
-
-          <motion.div
-            style={{ opacity: isDarkTheme && "0.5" }}
-            className={classes.heading_underline}
-            animate={headingUnderline}
-          />
-        </div>
-        <motion.div
-          animate={textAnimation}
-          className={classes.description_heading}
-        >
-          About me
-        </motion.div> */}
 
         <ParallaxSection />
 

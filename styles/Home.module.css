@@ -54,8 +54,8 @@
   row-gap: 25px;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
   position: absolute;
-  transition: ease-in-out 200ms;
   z-index: 100000;
 }
 .marquee {
@@ -516,6 +516,7 @@
   z-index: 30;
 }
 .laptop_container {
+  max-height: 280px;
   height: 50%;
   z-index: 22;
   position: relative;
@@ -547,7 +548,7 @@
 .screen_container {
   height: 90%;
   z-index: 22;
-  /* margin-left: -40px; */
+  max-height: 500px;
   z-index: 10;
   position: relative;
 }
@@ -1066,6 +1067,9 @@
 }
 
 @media screen and (max-width: 600px) {
+  .splash_heading {
+    font-size: 30px;
+  }
   .heading_container {
     position: absolute;
     top: -178%;

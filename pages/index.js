@@ -116,7 +116,6 @@ export default function Home() {
         transition: {
           type: "spring",
           duration: 1.5,
-          // : 0.3,
         },
       });
     } else if (displayScreen) {
@@ -150,16 +149,8 @@ export default function Home() {
 
   return (
     <div id="outer_container" className={classes.outer_container}>
-
-      <div
-        style={{ backgroundColor: !darkTheme ? "white" : "black" }}
-        className={classes.dark_mode_btn_container}
-      >
-        <DarkModeSwitch checked={darkTheme} onChange={handleToggle} size={30} />
-      </div>
       <motion.div
         animate={splashScreenAnimation}
-        // style={{ opacity: !displayScreen ? "1" : "0" }}
         className={classes.splash_screen}
       >
         <motion.div

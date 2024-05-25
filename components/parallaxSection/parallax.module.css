@@ -3,7 +3,7 @@
   flex-direction: column; 
   overflow-y: scroll; 
   scroll-snap-type: y mandatory;
-  height: 100vh;
+  height: 104vh;
   z-index: 100;
   scroll-snap-stop: always;
   align-items: center;
