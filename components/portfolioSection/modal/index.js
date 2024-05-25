@@ -21,7 +21,6 @@ const App = ({ open, setOpen }) => {
 
   return (
     <div style={styles}>
-      <h2>react-responsive-modal</h2>
       <Modal center open={open} onClose={onClose}>
         <div className={classes.container}>
           <Carousel style={{height: '50px'}}>

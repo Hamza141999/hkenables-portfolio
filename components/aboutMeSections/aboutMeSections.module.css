@@ -251,4 +251,18 @@
     justify-content: flex-start;
     align-items: center;
   }
+  .h2,
+  .big_heading {
+    margin: 10px 0 10px;
+  }
+  .heading_underline {
+    bottom: 14px;
+    height: 6px;
+  }
+  .text_container {
+    row-gap: 12px;
+  }
+  .text_container p {
+    width: 100%;
+  }
 }

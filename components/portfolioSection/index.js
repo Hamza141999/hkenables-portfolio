@@ -184,9 +184,9 @@ function PortfolioSection() {
             className={classes.picture_section}
           >
             <div className={classes.picture_section_inner}>
-              <div className={classes.code_link_tab}>
+              {/* <div className={classes.code_link_tab}>
                 <img src={github.src} />
-              </div>
+              </div> */}
               {projectData?.isLive && (
                 <Link target={"_blank"} href={projectData?.live_link}>
                   <div

@@ -354,13 +354,15 @@
     width: 100%;
     height: fit-content;
   }
-  .description_section p{
+  .description_section p {
     font-size: 12px;
   }
-  .tag_1 p, .tag_2 p{
+  .tag_1 p,
+  .tag_2 p {
     font-size: 10px;
   }
-  .tag_1, .tag_2 {
+  .tag_1,
+  .tag_2 {
     padding: 4px 10px 4px 10px;
     height: 20px;
   }
@@ -409,10 +411,31 @@
     width: 10px;
     height: 10px;
   }
-  .picture_section, .picture_section_inner, .project_pic {
+  .picture_section,
+  .picture_section_inner,
+  .project_pic {
     border-radius: 14px !important;
   }
-  .left_panel, .left_panel_blurred{
+  .left_panel,
+  .left_panel_blurred {
     left: -602px;
+  }
+  .live_link_tab,
+  .code_link_tab {
+    top: -23px;
+    right: 20px;
+    background-color: #053434;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 5px 9px 5px 9px;
+  }
+  .code_link_tab {
+    right: 90px;
+  }
+  .code_link_tab img {
+    width: 13px;
+  }
+  .live_link_tab p{
+    font-size: 10px;
   }
 }
