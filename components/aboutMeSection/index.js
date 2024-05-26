@@ -59,8 +59,6 @@ function AboutMeSection() {
       <h2 className={classes.heading_left}>ABOUT{"  "}ME</h2>
       <h2 className={classes.heading_right}>ABOUT{"  "}ME</h2>
 
-      {/* <div className={classes.top_bar} /> */}
-
       <div className={classes.bottom_pattern_1} />
       <div className={classes.bottom_pattern_2} />
       <a target={"_blank"} href="https://github.com/Hamza141999">

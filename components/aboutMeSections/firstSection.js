@@ -61,7 +61,7 @@ function FirstSection({firstSectionRef}) {
       </motion.h2>
 
       <motion.p variants={textAnimation} className={classes.aboutme_text}>
-        I love making beautiful tech and improve user retention on your platform, find out more...
+        I love making cool looking tech to improve user retention on your platform, find out more...
       </motion.p>
 
       <div

@@ -167,41 +167,43 @@ function Image({ image, index }) {
 
 export default function ParallaxSection() {
 
-  const { ref: firstSectionRef, inView: firstSectionInView } = useInView({
-    threshold: 0.99,
-  });
+  // const { ref: firstSectionRef, inView: firstSectionInView } = useInView({
+  //   threshold: 0.99,
+  // });
 
-  useEffect(() => {
-    let timer;
-    const outerContainer = document.getElementById('outer_container');
+  // useEffect(() => {
+  //   let timer;
+  //   const outerContainer = document.getElementById('outer_container');
 
-    if (firstSectionInView && outerContainer) {
-      outerContainer.style.overflowY = 'hidden';
-      console.log("Hidden");
+  //   if (firstSectionInView && outerContainer) {
+  //     outerContainer.style.overflowY = 'hidden';
+  //     console.log("Hidden");
 
-      timer = setTimeout(() => {
-        if (outerContainer) {
-          outerContainer.style.overflowY = 'scroll';
-          console.log("Scroll");
-        }
-      }, 1000);
-    } else {
-      timer = setTimeout(() => {
-        if (outerContainer) {
-          outerContainer.style.overflowY = 'scroll';
-          console.log("Scroll");
-        }
-      }, 1000);
-    }
+  //     timer = setTimeout(() => {
+  //       if (outerContainer) {
+  //         outerContainer.style.overflowY = 'scroll';
+  //         console.log("Scroll");
+  //       }
+  //     }, 1000);
+  //   } else {
+  //     timer = setTimeout(() => {
+  //       if (outerContainer) {
+  //         outerContainer.style.overflowY = 'scroll';
+  //         console.log("Scroll");
+  //       }
+  //     }, 1000);
+  //   }
 
-    return () => clearTimeout(timer);
-  }, [firstSectionInView]);
+  //   return () => clearTimeout(timer);
+  // }, [firstSectionInView]);
 
-  console.log("firstSectionInView: ", firstSectionInView);
+  // console.log("firstSectionInView: ", firstSectionInView);
 
   return (
     <div className={classes.parallax_container}>
-      <FirstSection firstSectionRef={firstSectionRef} />
+      <FirstSection 
+      // firstSectionRef={firstSectionRef}
+       />
       <WebSection />
       <Web3Section />
       <MobileSection />
