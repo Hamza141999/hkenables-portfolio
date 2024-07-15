@@ -112,7 +112,7 @@ function WhyMe({ lastSectionInView }) {
               style={{
                 width: width < 900 ? "60px" : "130px",
                 height: width < 900 ? "60px" : "130px",
-                rotate: width > 90 ? "-150deg" : "140deg",
+                rotate: "150deg",
               }}
               autoplay={isLottiePlaying}
               loop={false}
