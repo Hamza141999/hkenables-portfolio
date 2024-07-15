@@ -285,13 +285,18 @@ export default function Home() {
                 className={classes.heading_container}
               >
                 <h2 className={classes.intro_heading}>Hamza here!</h2>
-                <div style={{animation: !isSystemOn && 'initial'}} className={classes.heading_underline} />
+                <div
+                  style={{ animation: !isSystemOn && "initial" }}
+                  className={classes.heading_underline}
+                />
 
                 <h3 className={classes.intro_subheading}>and I make</h3>
               </motion.div>
               <div className={classes.laptop_text_container}>
-                {isSystemOn ? <span id="rotate"></span> : <span></span>}
-              </div>{" "}
+
+                <span style={{opacity: isSystemOn ? '1' : '0'}} id="rotate"></span>
+              </div>
+
               <img src={laptop.src} className={classes.laptop} />
             </div>
             <motion.div
